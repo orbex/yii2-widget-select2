@@ -4050,7 +4050,7 @@ S2.define('select2/dropdown/attachBody',[
   '../utils'
 ], function ($, Utils) {
   function AttachBody (decorated, $element, options) {
-    this.$dropdownParent = options.get('dropdownParent') || $(document.body);
+    this.$dropdownParent = $(options.get('dropdownParent')) || $(document.body);
 
     decorated.call(this, $element, options);
   }
@@ -4203,7 +4203,7 @@ S2.define('select2/dropdown/attachBody',[
       top: container.bottom
     };
 
-    // Determine what the parent element is to use for calciulating the offset
+    // Determine what the parent element is to use for calculating the offset
     var $offsetParent = this.$dropdownParent;
 
     // For statically positoned elements, we need to get the element
@@ -4222,7 +4222,7 @@ S2.define('select2/dropdown/attachBody',[
     }
 
     if (!enoughRoomBelow && enoughRoomAbove && !isCurrentlyAbove) {
-      newDirection = 'above';
+      newDirection = 'below';
     } else if (!enoughRoomAbove && enoughRoomBelow && isCurrentlyAbove) {
       newDirection = 'below';
     }
